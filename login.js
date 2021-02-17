@@ -1,17 +1,16 @@
 
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
-// const signUpButton = document.getElementById('signUp');
-// const signUpButton = document.getElementById('signUp');
+const signUpButton = document.getElementById('signUp');
 // the two function below are to control the animation transition
 
-// signUpButton.addEventListener('click',() =>
-// 	container.classList.add('up-panel-active')
-// 	);
+signUpButton.addEventListener('click',() =>
+	container.classList.add('up-panel-active')
+	);
 
-// signInButton.addEventListener('click',() =>
-// 	container.classList.remove('up-panel-active')
-// 	);
+signInButton.addEventListener('click',() =>
+	container.classList.remove('up-panel-active')
+	);
 
 //  to configure firebase
 	var firebaseConfig = {
@@ -28,24 +27,23 @@ const container = document.getElementById('container');
 	   const auth = firebase.auth();
 	
 	   
-function signUp(){
-	var email = document.getElementById("email");
-	var password = document.getElementById("password");
-	
-	const promise = auth.createUserWithEmailAndPassword(email.value,password.value);
+function signUp2(){
+	var email = document.getElementById("email2");
+	var password = document.getElementById("password2");
+
+	const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
 	promise.catch(e => alert(e.message));
 	alert("Signed Up");
 
 
 }
 
-function signIn(){
+function signIn2(){
 	var email = document.getElementById("email");
 	var password = document.getElementById("password");
-
-	const promise = auth.signInWithEmailAndPassword(email.value,password.value);
+	const promise = auth.signInWithEmailAndPassword(email.value, password.value);
 	promise.catch(e => alert(e.message));
-	
+	// should take the user to homepage
 
 }
 // this can be included in the main home page
@@ -62,6 +60,7 @@ auth.onAuthStateChanged(function(user){
 	}else{
 		// no user signed in
 		alert("Not an Acive User");
+	
 	}
 });
 
